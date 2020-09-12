@@ -26,6 +26,11 @@ object Dependencies {
         const val webkitX = "1.2.0"
         const val modernAndroidPreferences = "1.1.0-alpha3"
 
+        // Compose
+        const val compose = "1.0.0-alpha06"
+        const val composeRouter = "0.21.0"
+        const val accompanistCoil = "0.3.2"
+
         // Room
         const val room = "2.2.5"
 
@@ -88,6 +93,20 @@ object Dependencies {
         const val modernAndroidPreferences = "de.Maxr1998.android:modernpreferences:${Versions.modernAndroidPreferences}"
     }
 
+    object Compose {
+        val runtime = compose("runtime")
+        val ui = compose("ui")
+        val uiTooling = androidx("ui", "tooling", Versions.compose)
+        val foundation = compose("foundation")
+        val animation = compose("animation")
+        val material = compose("material")
+        val materialIcons = compose("material", "icons-core")
+        val materialIconsExtended = compose("material", "icons-extended")
+        val runtimeLiveData = compose("runtime", "livedata")
+        const val composeRouter = "com.github.zsoltk:compose-router:${Versions.composeRouter}"
+        const val accompanistCoil = "dev.chrisbanes.accompanist:accompanist-coil:${Versions.accompanistCoil}"
+    }
+
     object Room {
         val runtime = room("runtime")
         val compiler = room("compiler")
@@ -96,7 +115,7 @@ object Dependencies {
     object Network {
         const val apiclient = "org.jellyfin.apiclient:android:${Versions.apiclient}"
         const val okHttp = "com.squareup.okhttp3:okhttp:${Versions.okHttp}"
-        const val coil = "io.coil-kt:coil-base:${Versions.coil}"
+        const val coil = "io.coil-kt:coil:${Versions.coil}"
         val exoPlayerHLS = exoPlayer("hls")
     }
 
@@ -129,10 +148,12 @@ object Dependencies {
     }
 
     // Helpers
-    private fun androidx(module: String, version: String) = "androidx.$module:$module:$version"
+    private fun androidx(module: String, version: String) = androidx(module, null, version)
+    private fun androidx(module: String, variant: String?, version: String) = "androidx.$module:$module${variant?.let { "-$it" } ?: ""}:$version"
     private fun androidxKtx(module: String, version: String) = "androidx.$module:$module-ktx:$version"
     private fun kotlinx(module: String, version: String) = "org.jetbrains.kotlinx:kotlinx-$module:$version"
     private fun lifecycle(module: String) = "androidx.lifecycle:lifecycle-$module:${Versions.lifecycleExtensions}"
     private fun room(module: String) = "androidx.room:room-$module:${Versions.room}"
+    private fun compose(module: String, variant: String? = null) = "androidx.compose.$module:$module${variant?.let { "-$it" } ?: ""}:${Versions.compose}"
     private fun exoPlayer(module: String) = "com.google.android.exoplayer:exoplayer-$module:${Versions.exoPlayer}"
 }

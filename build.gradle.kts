@@ -7,7 +7,7 @@ buildscript {
     }
     dependencies {
         val kotlinVersion: String by project
-        classpath("com.android.tools.build:gradle:4.1.0")
+        classpath("com.android.tools.build:gradle:4.2.0-alpha14")
         classpath(kotlin("gradle-plugin", kotlinVersion))
         classpath("de.mannodermaus.gradle.plugins:android-junit5:1.6.2.0")
     }
@@ -17,6 +17,7 @@ allprojects {
     repositories {
         google()
         jcenter()
+        maven { setUrl("https://jitpack.io") }
     }
 }
 

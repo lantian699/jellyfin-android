@@ -57,6 +57,7 @@ android {
     @Suppress("UnstableApiUsage")
     buildFeatures {
         viewBinding = true
+        compose = true
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
@@ -64,6 +65,10 @@ android {
     }
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_1_8.toString()
+        useIR = true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion = Dependencies.Versions.compose
     }
     lintOptions {
         isAbortOnError = false
@@ -104,6 +109,19 @@ dependencies {
     implementation(Dependencies.UI.webkitX)
     implementation(Dependencies.UI.exoPlayer)
     implementation(Dependencies.UI.modernAndroidPreferences)
+
+    // Jetpack Compose
+    implementation(Dependencies.Compose.runtime)
+    implementation(Dependencies.Compose.ui)
+    implementation(Dependencies.Compose.uiTooling)
+    implementation(Dependencies.Compose.foundation)
+    implementation(Dependencies.Compose.animation)
+    implementation(Dependencies.Compose.material)
+    implementation(Dependencies.Compose.materialIcons)
+    implementation(Dependencies.Compose.materialIconsExtended)
+    implementation(Dependencies.Compose.runtimeLiveData)
+    implementation(Dependencies.Compose.composeRouter)
+    implementation(Dependencies.Compose.accompanistCoil)
 
     // Room
     implementation(Dependencies.Room.runtime)
