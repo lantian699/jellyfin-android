@@ -2,8 +2,10 @@ package org.jellyfin.mobile
 
 import android.app.Application
 import android.webkit.WebView
+import coil.Coil
 import org.jellyfin.mobile.model.databaseModule
 import org.jellyfin.mobile.utils.JellyTree
+import org.jellyfin.mobile.ui.uiModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.fragment.koin.fragmentFactory
 import org.koin.core.context.startKoin
@@ -24,7 +26,12 @@ class JellyfinApplication : Application() {
         startKoin {
             androidContext(this@JellyfinApplication)
             fragmentFactory()
-            modules(applicationModule, databaseModule)
+            modules(applicationModule, databaseModule, uiModule)
+
+            // Set Coil ImageLoader factory
+            Coil.setImageLoader {
+                koin.get()
+            }
         }
     }
 }

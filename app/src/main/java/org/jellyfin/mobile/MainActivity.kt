@@ -9,13 +9,11 @@ import android.os.IBinder
 import android.view.OrientationEventListener
 import androidx.appcompat.app.AppCompatActivity
 import androidx.coordinatorlayout.widget.CoordinatorLayout
-import okhttp3.HttpUrl.Companion.toHttpUrlOrNull
 import org.jellyfin.apiclient.interaction.ApiClient
 import org.jellyfin.mobile.cast.Chromecast
 import org.jellyfin.mobile.cast.IChromecast
-import org.jellyfin.mobile.fragment.ConnectFragment
-import org.jellyfin.mobile.fragment.WebViewFragment
 import org.jellyfin.mobile.player.PlayerFragment
+import org.jellyfin.mobile.ui.MainFragment
 import org.jellyfin.mobile.utils.PermissionRequestHelper
 import org.jellyfin.mobile.utils.SmartOrientationListener
 import org.jellyfin.mobile.utils.lazyView
@@ -53,14 +51,8 @@ class MainActivity : AppCompatActivity() {
         bindService(Intent(this, RemotePlayerService::class.java), serviceConnection, Service.BIND_AUTO_CREATE)
 
         // Load UI
-        appPreferences.instanceUrl?.toHttpUrlOrNull().also { url ->
-            with(supportFragmentManager) {
-                if (url != null) {
-                    replaceFragment<WebViewFragment>()
-                } else {
-                    replaceFragment<ConnectFragment>()
-                }
-            }
+        with(supportFragmentManager) {
+            replaceFragment<MainFragment>()
         }
 
         // Setup Chromecast
