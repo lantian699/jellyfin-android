@@ -11,6 +11,22 @@ class AppPreferences(context: Context) {
     private val sharedPreferences: SharedPreferences =
         context.getSharedPreferences("${context.packageName}_preferences", Context.MODE_PRIVATE)
 
+    var currentServerId: Long?
+        get() = sharedPreferences.getLong(Constants.PREF_SERVER_ID, -1).takeIf { it >= 0 }
+        set(value) {
+            sharedPreferences.edit {
+                if (value != null) putLong(Constants.PREF_SERVER_ID, value) else remove(Constants.PREF_SERVER_ID)
+            }
+        }
+
+    var currentUserId: String?
+        get() = sharedPreferences.getString(Constants.PREF_USER_ID, null)
+        set(value) {
+            sharedPreferences.edit {
+                if (value != null) putString(Constants.PREF_USER_ID, value) else remove(Constants.PREF_USER_ID)
+            }
+        }
+
     var instanceUrl: String?
         get() = sharedPreferences.getString(Constants.PREF_INSTANCE_URL, null)
         set(value) {

@@ -66,6 +66,10 @@ android {
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_1_8.toString()
         useIR = true
+        freeCompilerArgs += listOf(
+            "-Xopt-in=kotlin.RequiresOptIn",
+            "-Xallow-jvm-ir-dependencies"
+        )
     }
     composeOptions {
         kotlinCompilerExtensionVersion = Dependencies.Versions.compose

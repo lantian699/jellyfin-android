@@ -17,6 +17,8 @@ object Constants {
     const val FRAGMENT_CONNECT_EXTRA_ERROR = "error"
 
     // Preference keys
+    const val PREF_SERVER_ID = "pref_server_id"
+    const val PREF_USER_ID = "pref_user_id"
     const val PREF_INSTANCE_URL = "pref_instance_url"
     const val PREF_INSTANCE_USER_ID = "pref_instance_user_id"
     const val PREF_INSTANCE_ACCESS_TOKEN = "pref_instance_access_token"
