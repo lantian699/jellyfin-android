@@ -5,6 +5,7 @@ import org.jellyfin.apiclient.interaction.EmptyResponse
 import org.jellyfin.apiclient.interaction.Response
 import org.jellyfin.apiclient.model.configuration.ServerConfiguration
 import org.jellyfin.apiclient.model.dto.BaseItemDto
+import org.jellyfin.apiclient.model.dto.UserDto
 import org.jellyfin.apiclient.model.dto.UserItemDataDto
 import org.jellyfin.apiclient.model.playlists.PlaylistItemQuery
 import org.jellyfin.apiclient.model.querying.*
@@ -34,6 +35,10 @@ suspend fun ApiClient.authenticateUser(username: String, password: String): Auth
     AuthenticateUserAsync(username, password, ContinuationResponse(continuation))
 }
 
+suspend fun ApiClient.getUserInfo(id: String): UserDto? = suspendCoroutine { continuation ->
+    GetUserAsync(id, ContinuationResponse(continuation))
+}
+
 suspend fun ApiClient.reportPlaybackProgress(progressInfo: PlaybackProgressInfo) = suspendCoroutine<Unit> { continuation ->
     ReportPlaybackProgressAsync(progressInfo, ContinuationEmptyResponse(continuation))
 }
@@ -46,7 +51,7 @@ suspend fun ApiClient.markPlayed(itemId: String, userId: String): UserItemDataDt
     MarkPlayedAsync(itemId, userId, Date(), ContinuationResponse(continuation))
 }
 
-suspend fun ApiClient.getUserViews(userId: String): ItemsResult? = suspendCoroutine { continuation ->
+suspend fun ApiClient.getUserViews(userId: String = currentUserId): ItemsResult? = suspendCoroutine { continuation ->
     GetUserViews(userId, ContinuationResponse(continuation))
 }
 

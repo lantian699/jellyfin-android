@@ -13,6 +13,8 @@
     <string name="password_input_hint">Password</string>
     <string name="error_text_wrong_login">Wrong username or password</string>
     <string name="login_button_text">Login</string>
+    <string name="profile_button_text">Profile</string>
+    <string name="logout_button_text">Logout</string>
 
     <string name="battery_optimizations_message">Please disable battery optimizations for media playback while the screen is off.</string>
     <string name="network_title">Allowed Network Types</string>

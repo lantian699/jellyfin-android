@@ -5,8 +5,8 @@ import androidx.compose.runtime.Composable
 import com.github.zsoltk.compose.router.Router
 import org.jellyfin.mobile.controller.ServerController
 import org.jellyfin.mobile.model.state.LoginState
-import org.jellyfin.mobile.ui.screen.HomeScreen
 import org.jellyfin.mobile.ui.screen.SetupScreen
+import org.jellyfin.mobile.ui.screen.home.HomeScreen
 
 @Composable
 fun AppContent() {
