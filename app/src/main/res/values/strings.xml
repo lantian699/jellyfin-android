@@ -16,6 +16,10 @@
     <string name="profile_button_text">Profile</string>
     <string name="logout_button_text">Logout</string>
 
+    <string name="library_music_tab_albums">Albums</string>
+    <string name="library_music_tab_artists">Artists</string>
+    <string name="library_music_tab_songs">Songs</string>
+
     <string name="battery_optimizations_message">Please disable battery optimizations for media playback while the screen is off.</string>
     <string name="network_title">Allowed Network Types</string>
     <string name="network_message">Do you want to allow the download to run over mobile data or roaming networks? Charges from your provider may apply.</string>

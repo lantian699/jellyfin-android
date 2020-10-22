@@ -71,6 +71,10 @@ suspend fun ApiClient.getArtists(query: ArtistsQuery): ItemsResult? = suspendCor
     GetArtistsAsync(query, ContinuationResponse(continuation))
 }
 
+suspend fun ApiClient.getAlbumArtists(query: ArtistsQuery): ItemsResult? = suspendCoroutine { continuation ->
+    GetAlbumArtistsAsync(query, ContinuationResponse(continuation))
+}
+
 suspend fun ApiClient.getGenres(query: ItemsByNameQuery): ItemsResult? = suspendCoroutine { continuation ->
     GetGenresAsync(query, ContinuationResponse(continuation))
 }

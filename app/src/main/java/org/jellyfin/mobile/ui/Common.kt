@@ -14,6 +14,7 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.dp
 import org.jellyfin.mobile.R
 
+val TopBarElevation = 4.dp
 val DefaultCornerRounding = RoundedCornerShape(8.dp)
 
 @Composable
@@ -23,6 +24,7 @@ fun ScreenScaffold(
     titleFont: FontFamily? = null,
     canGoBack: Boolean = false,
     actions: @Composable RowScope.() -> Unit = {},
+    hasElevation: Boolean = true,
     content: @Composable (PaddingValues) -> Unit
 ) {
     Scaffold(
@@ -38,6 +40,7 @@ fun ScreenScaffold(
                     },
                     actions = actions,
                     backgroundColor = MaterialTheme.colors.primary,
+                    elevation = if (hasElevation) TopBarElevation else 0.dp,
                 )
             } else {
                 TopAppBar(
@@ -46,6 +49,7 @@ fun ScreenScaffold(
                     },
                     actions = actions,
                     backgroundColor = MaterialTheme.colors.primary,
+                    elevation = if (hasElevation) TopBarElevation else 0.dp,
                 )
             }
         },
