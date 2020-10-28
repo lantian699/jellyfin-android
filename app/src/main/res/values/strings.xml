@@ -17,6 +17,11 @@
     <string name="downloading">Downloading</string>
     <string name="download_no_storage_permission">Cannot download files without storage permissions</string>
 
+    <string name="media_service_generic_error">An error occurred</string>
+    <string name="media_service_item_not_found">Media item could not be found</string>
+
+    <string name="music_notification_channel">Jellyfin Music Player</string>
+    <string name="music_notification_channel_description">Used for music playback controls</string>
     <string name="notification_action_previous">Previous</string>
     <string name="notification_action_rewind">Rewind</string>
     <string name="notification_action_play">Play</string>
