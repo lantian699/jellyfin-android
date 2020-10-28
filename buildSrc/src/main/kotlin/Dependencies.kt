@@ -34,12 +34,12 @@ object Dependencies {
         const val okHttp = "4.8.0"
         const val coil = "1.0.0-rc2"
 
-        // Cast
-        const val mediaRouter = "1.1.0"
-        const val playServicesCast = "18.1.0"
-
         // Media
-        const val media = "1.1.0"
+        const val media = "1.2.0"
+
+        // Cast
+        const val mediaRouter = "1.2.0"
+        const val playServicesCast = "19.0.0"
 
         // Health
         const val timber = "4.7.1"
@@ -100,15 +100,15 @@ object Dependencies {
         val exoPlayerHLS = exoPlayer("hls")
     }
 
+    object Media {
+        val media = androidx("media", Versions.media)
+        var exoPlayerMediaSession = "com.google.android.exoplayer:extension-mediasession:${Versions.exoPlayer}"
+    }
+
     object Cast {
         val mediaRouter = androidx("mediarouter", Versions.mediaRouter)
         const val playServicesCast = "com.google.android.gms:play-services-cast:${Versions.playServicesCast}"
         const val playServicesCastFramework = "com.google.android.gms:play-services-cast-framework:${Versions.playServicesCast}"
-    }
-
-    object Media {
-        val media = androidx("media", Versions.media)
-        var exoPlayerMediaSession = "com.google.android.exoplayer:extension-mediasession:${Versions.exoPlayer}"
     }
 
     /**
